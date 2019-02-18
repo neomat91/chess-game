@@ -14,7 +14,7 @@ console.log('Welcome to my chess game %C3%B9');
 var Chess = require('./chess_git_supp').Chess;
 
 var chess = new Chess();
-
+chess.move('e4');
 console.log(chess.ascii());
 
 
