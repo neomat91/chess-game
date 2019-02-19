@@ -1,25 +1,28 @@
 // CHESS 
 
-console.log('Welcome to my chess game %C3%B9');
+console.log('Welcome to my chess game \u270F');
+//  Pieces :
+//  	 - White - w
+//  	 - Black - b
+//	 - Pawns - p 
+//       - Rooks - r
+// 	 - Knights - n 
+//       - Bishops - b
+//       - Queen - q
+// 	 - King - k
 
-// Output the base chess piece positions
-//  pieces -> 
-//	 - Pawns 
-//       - Rooks
-// 	 - Knights 
-//       - Bishops
-//       - Queen
-// 	 - King
+const Chess = require('./chess_git_supp').Chess;
+//import Chess from "./chess_git_supp.js";
 
-var Chess = require('./chess_git_supp').Chess;
+const chess = new Chess();
 
-var chess = new Chess();
-chess.move('e4');
-console.log(chess.ascii());
+class bst 
+{
+	static __base__()
+	{
+		return console.log(chess.ascii());	
+	}
+	 
+}
 
-
-
-
-
-
- 
+bst.__base__();
