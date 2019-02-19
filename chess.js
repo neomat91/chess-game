@@ -22,7 +22,14 @@ class bst
 	{
 		return console.log(chess.ascii());	
 	}
-	 
+
+	static random()
+	{
+		var _moves = chess.moves();
+		var rand_move  = _moves[Math.floor(Math.random()*_moves.length)];
+		chess.move(rand_move);
+		return console.log(chess.ascii());
+	}
 }
 
-bst.__base__();
+bst.random();
