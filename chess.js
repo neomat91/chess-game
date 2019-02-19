@@ -32,44 +32,83 @@ class bst
 		//we 50		be -50
 		//wk 900	bk -900
 		//wq 90		bq -90
-
-		
+		var calculated=[];	
 		for(var i=0;i<pawn.length;i++)
 		{
-			var calculated=[];
 
 			if(chess.turn()=='w')
 			{
-				if(pawn[i] == /K/)
+				if(pawn[i].includes("K"))
 				{
 					var value = 900;
 				}
-				else if(pawn[i] == /Q/)
+				else if(pawn[i].includes("Q"))
 				{
 					var value = 90;
 				}
-				else if(pawn[i] == /B/)
+				else if(pawn[i].includes("B"))
 				{
 					var value = 30;
 				}
-				else if(pawn[i] == /R/)
+				else if(pawn[i].includes("R"))
 				{
 					var value = 50;
 				}
-				else if(pawn[i] == /N/)
-				{
+				else if(pawn[i].includes("N"))
+				{	
 					var value = 30;
 				}
 				else
 				{
 					var value = 10;
 				}
-				calculated[i] = value;
+				calculated[i]=value;
 			}
+			else
+			{
+				
+				if(pawn[i].includes("K"))
+				{
+					var value = -900;
+				}
+				else if(pawn[i] == /Q/)
+				{
+					var value = -90;
+				}
+				else if(pawn[i] == /B/)
+				{
+					var value = -30;
+				}
+				else if(pawn[i] == /R/)
+				{
+					var value = -50;
+				}
+				else if(pawn[i].includes("N"))
+				{	
+					var value = -30;
+				}
+				else
+				{
+					var value = -10;
+				}
+				calculated[i]=value;
+			}
+
 		}
-		var max = Math.max(calculated);
-		var index = calculated.indexOf(max);
+		if(chess.turn()=='w')
+		{
+			var max = Math.max.apply(null, calculated);
+		}
+		else 
+		{
+			var max = Math.min.apply(null, calculated);
+		}
+		console.log(max);
+		var index = Number(calculated.indexOf(max));
+		console.log(index);
+		console.log(pawn.length);
 		var fmove = pawn[index];
+		console.log(fmove);
 		return fmove;
 	}
 
@@ -86,7 +125,7 @@ class bst
 //		var rand_move  = _moves[Math.floor(Math.random()*_moves.length)];
 		chess.move(_move);	
 //		var position = chess.fen();
-		if(counter < 3)
+		if(counter < 2)
 		{
 			counter  = counter + 1;
 			bst.random(counter);
@@ -95,20 +134,7 @@ class bst
 		{
 			console.log(chess.ascii());
 		}
-	}
-
-
-
-	static min()
-	{
-		
-	}
-
-	static max()
-	{
-
-	}
-
+	}	
 
 }
 
